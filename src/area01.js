@@ -39,7 +39,7 @@ class area01 extends Phaser.Scene{
 
         this.VEL = 200;
 
-        //set collision
+        //set collision 
         terrainLayer.setCollisionByProperty({collides: true});
         treeLayer.setCollisionByProperty({collides: true});
         this.physics.add.collider(this.slime, terrainLayer);
