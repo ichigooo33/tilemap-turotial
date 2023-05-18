@@ -22,12 +22,6 @@ class area01 extends Phaser.Scene{
         const terrainLayer = map.createLayer("Terrain", tileset, 0, 0);
         const treeLayer = map.createLayer("Tree", tileset, 0, 0).setDepth(10);
 
-        //set collision
-        terrainLayer.setCollisionByProperty({collides: true});
-        treeLayer.setCollisionByProperty({collides: true});
-        this.physics.add.collider(this.slime, terrainLayer);
-        this.physics.add.collider(this.slime, treeLayer);
-
         //add player
         this.slime = this.physics.add.sprite(32, 128, "slime", 0).setScale(2);
         this.anims.create({
@@ -44,6 +38,12 @@ class area01 extends Phaser.Scene{
         this.slime.body.setCollideWorldBounds(true);
 
         this.VEL = 200;
+
+        //set collision
+        terrainLayer.setCollisionByProperty({collides: true});
+        treeLayer.setCollisionByProperty({collides: true});
+        this.physics.add.collider(this.slime, terrainLayer);
+        this.physics.add.collider(this.slime, treeLayer);
 
         //input
         this.cursors = this.input.keyboard.createCursorKeys();
